@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import heroVideo from "../assets/hero.mp4";
 import Brands from "../components/Brands";
+import Services from "../components/Services";
 
 const Home = () => {
   return (
@@ -58,6 +59,8 @@ const Home = () => {
 
       {/* Brands Section */}
       <Brands />
+      {/* Services Section */}
+      <Services />
 
     </div>
   );
