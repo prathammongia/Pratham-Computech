@@ -38,7 +38,7 @@ console.log("FILES:", req.files);
 
   const { Resend } = require("resend");
 
-const resend = new Resend("YOUR_API_KEY");
+const resend = new Resend("re_a9yxrv4z_C9QVNms5Ck3BxjYyN7XptaDe");
 
 await resend.emails.send({
   from: "Pratham Computech <onboarding@resend.dev>",
