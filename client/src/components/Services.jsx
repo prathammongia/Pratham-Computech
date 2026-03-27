@@ -5,28 +5,34 @@ import {
   Building 
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 const Services = () => {
 
   const services = [
     {
       title: "New Products & Systems",
       description: "Buy brand new laptops, desktops and accessories.",
-      icon: Monitor
+      icon: Monitor,
+      link: "/services/new-products"
     },
     {
       title: "Sell Your Device",
       description: "Sell your used laptops and computer systems.",
-      icon: RefreshCcw
+      icon: RefreshCcw,
+      link: "/services/sell-device"
     },
     {
       title: "Repair & Maintenance",
       description: "Laptop, PC repair and maintenance services.",
-      icon: Wrench
+      icon: Wrench,
+      link: "/services/repair"
     },
     {
       title: "Business IT Solutions",
       description: "Contract-based laptops, rentals and IT support.",
-      icon: Building
+      icon: Building,
+      link: "/services/business-solutions"
     }
   ];
 
@@ -43,49 +49,59 @@ const Services = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
 
-        {services.map((service, index) => {
+  {services.map((service, index) => {
 
-          const Icon = service.icon;
+    const Icon = service.icon;
 
-          return (
-            <div
-              key={index}
-              className="
-                bg-white 
-                rounded-xl 
-                p-8 
-                shadow-md 
-                hover:shadow-2xl 
-                hover:-translate-y-2 
-                transition 
-                duration-300
-                cursor-pointer
-                text-center
-              "
-            >
+    return (
 
-              <div className="flex justify-center mb-4">
-                <Icon 
-                  size={40} 
-                  className="text-orange-500"
-                />
-              </div>
+      <Link to={service.link} key={index}>
 
-              <h3 className="text-xl font-semibold mb-2">
-                {service.title}
-              </h3>
+        <div
+          className="
+            bg-white 
+            rounded-xl 
+            p-8 
+            shadow-md 
+            hover:shadow-2xl 
+            hover:-translate-y-2 
+            transition 
+            duration-300
+            cursor-pointer
+            text-center
+            h-full
+            flex
+            flex-col
+            justify-between
+          "
+        >
 
-              <p className="text-gray-600 text-sm">
-                {service.description}
-              </p>
+          <div>
 
+            <div className="flex justify-center mb-4">
+              <Icon size={40} className="text-orange-500" />
             </div>
-          );
-        })}
 
-      </div>
+            <h3 className="text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+
+            <p className="text-gray-600 text-sm">
+              {service.description}
+            </p>
+
+          </div>
+
+        </div>
+
+      </Link>
+
+    );
+  })}
+
+</div>
 
     </div>
   );

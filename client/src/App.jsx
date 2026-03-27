@@ -11,6 +11,7 @@ import Repair from "./pages/services/Repair";
 import BusinessSolutions from "./pages/services/BusinessSolutions";
 import ProductDetails from "./pages/services/ProductDetails";
 
+
 function App() {
   return (
     <Router>
@@ -25,6 +26,11 @@ function App() {
         <Route path="/services/repair" element={<Repair />} />
         <Route path="/services/business" element={<BusinessSolutions />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/services/new-products" element={<NewProducts />} />
+        <Route path="/services/sell-device" element={<SellDevice />} />
+        <Route path="/services/repair" element={<Repair />} />
+        <Route path="/services/business-solutions" element={<BusinessSolutions />} />
+        
         
       </Routes>
     </Router>

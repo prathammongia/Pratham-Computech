@@ -476,20 +476,15 @@ const handleSubmit = async (e) => {
     Upload Images
   </h2>
 
-  <input
-    type="file"
-    multiple
-    onChange={(e) => setImages(Array.from(e.target.files))}
-    className="border p-3 w-full"
-  />
+ 
 
   <p className="text-sm text-gray-500 mt-2">
-    You may also upload images to Google Drive and paste link below
+    You should upload images to Google Drive and paste link below
   </p>
 
   <input
     name="driveLink"
-    placeholder="Google Drive Link (Optional)"
+    placeholder="Google Drive Link"
     className="border p-3 w-full mt-2"
     onChange={handleChange}
   />
