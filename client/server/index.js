@@ -37,12 +37,17 @@ app.post("/api/sell-device", upload.array("images"), async (req, res) => {
 console.log("FILES:", req.files);
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "mongia.prathamkv@gmail.com",
-      pass: "kzgu eiwl lebz fder"
-    }
-  });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "mongia.prathamkv@gmail.com",
+    pass: "kzgu eiwl lebz fder"
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
 
   const mailOptions = {
     from: "mongia.prathamkv@gmail.com",
