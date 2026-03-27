@@ -36,17 +36,21 @@ app.post("/api/sell-device", upload.array("images"), async (req, res) => {
   console.log("BODY:", req.body);
 console.log("FILES:", req.files);
 
-  const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: "mongia.prathamkv@gmail.com",
-    pass: "kzgu eiwl lebz fder"
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
+  const { Resend } = require("resend");
+
+const resend = new Resend("YOUR_API_KEY");
+
+await resend.emails.send({
+  from: "Pratham Computech <onboarding@resend.dev>",
+  to: "mongia.prathamkv@gmail.com",
+  subject: "New Laptop Sell Request",
+  html: `
+    <h2>New Laptop Sell Request</h2>
+    <p>Name: ${data.name}</p>
+    <p>Email: ${data.email}</p>
+    <p>Phone: ${data.phone}</p>
+    <p>Drive Link: ${data.driveLink}</p>
+  `
 });
 
   const mailOptions = {
