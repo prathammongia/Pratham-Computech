@@ -51,26 +51,24 @@ const handleSubmit = async (e) => {
 
   setLoading(true);
 
-  const formDataToSend = new FormData();
-
-  Object.keys(formData).forEach((key) => {
-    formDataToSend.append(key, formData[key]);
-  });
-
-  images.forEach((image) => {
-    formDataToSend.append("images", image);
-  });
-
   try {
+
     await axios.post(
       "https://pratham-computech.onrender.com/api/sell-device",
-      formDataToSend
+      formData,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
     );
 
     alert("Submitted Successfully");
 
   } catch (error) {
+
     console.log(error);
+
   }
 
   setLoading(false);
@@ -148,7 +146,7 @@ const handleSubmit = async (e) => {
               <div>
                 <label>Brand <span className="text-red-500">*</span></label>
                 <select name="brand" className="border p-2 w-full" onChange={handleChange}>
-                  <option>Select Brand</option>
+                  <option value="">Select Brand</option>
                   <option>Dell</option>
                   <option>HP</option>
                   <option>Lenovo</option>
