@@ -63,7 +63,7 @@ const handleSubmit = async (e) => {
 
   try {
     await axios.post(
-      "http://localhost:5000/api/sell-device",
+      "https://pratham-computech.onrender.com/api/sell-device",
       formDataToSend
     );
 
